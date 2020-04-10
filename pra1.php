@@ -27,5 +27,14 @@
 ?>
 <hr>
 <?php
+    for($i=0;$i<count($a);$i++){
+        echo $a[$i] ." , ";
+        
+        if(i%9==8){
+            echo "<br>";
+
+        }
+    }
     
+
 ?>
