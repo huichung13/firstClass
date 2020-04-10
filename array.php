@@ -36,7 +36,8 @@ echo "<hr>";
 echo "in_array(\$a)=>";
 echo in_array(["國文"=>90, "英文"=>80, "歷史"=>33],$a);
 echo "<hr>";
-
+$num=array_search(["國文"=>90, "英文"=>80,"歷史"=>33],$a);
+echo "座號: " . $num;
 
 
 
