@@ -19,8 +19,17 @@ table td{
 
 <h4>月曆練習</h4>
 <div class="box">
+    <form action="?" method='get'>
+        年份：<input type="number" name="year" >
+        <input type="submit" value="送出">
+    </form>
 <?php
-$year="2020";
+if (isset($_get[$year])) {
+    $year=$_get["$year"];
+}else{
+    $year=date("Y");
+}
+
 for ($m=1; $m <= 12; $m++) {    
 ?>
 
