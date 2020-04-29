@@ -1,38 +1,26 @@
+<h1>資料庫的連線</h1>
 <?php
 
-echo "Hello World";
-$a=1;
-$a=2.1;
-echo "<br>";
-echo $a;
+$dsn="mysql:host=localhost;charset=utf8;dbname=students";
+$pdo=new PDO($dsn, 'root','');
 
-// 宣告一個常數
-// 常數不可變更
-define("PI",3.1415927);
-echo PI;
+$sql="select * from students";
 
-// 運算子++ => $b=$b+1
-
-$a="A";
-$b="B";
-echo $a;
-echo "<br>";
-echo $b;
-echo "<br>";
+// $rows= $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+$rows= $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 
 
-// 三元運算子
-$a=0;
+// echo $rows[1]['name'];
+// echo "<hr>";
+// echo $rows[1][10];
+// echo "<pre>";
+// print_r($rows);
+// echo "</pre>";
 
-echo ($a>0)?"很貴":"免費";
-
-echo "<hr>";
-
-if($a>0){
-    echo "很貴";
+foreach($rows as @row){
+    
 }
-else {
-    echo "free";
-}
+
+
 
 ?>
