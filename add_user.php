@@ -2,7 +2,7 @@
 
 if (empty($_post)) {
     echo "!!!";
-    exit();
+    // exit();
 }
 
 $dsn="mysql:host=localhost;charset=utf8;dbname=school";

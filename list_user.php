@@ -56,7 +56,8 @@ foreach ($rows as $row) {
     echo "    <td>" .$row['create_time']."</td>";
     echo "    <td>";
     echo "<a href='edit_user.php?user=".$row['id']."'><button> 編輯</button></a>";
-    echo "<button> 刪除</button>";
+    echo "<a href='del_user.php?user=".$row['id']."'><button> 刪除</button></a>";
+    // echo "<button> 刪除</button>";
     
     echo "</td>";
     echo "</tr>";
