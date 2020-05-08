@@ -1,3 +1,12 @@
+<!-- <?php
+if(!isset($_COOKIE['id'])){
+    echo "非法登入";
+    echo "<a href='login.php'>登入</a>";
+    exit();
+
+}
+
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +27,13 @@
 <body>
     <h1>會員列表</h1>
 <?php
+include "dbconnect.php";
 
-$dsn="mysql:host=localhost;charset=utf8;dbname=school";
-$pdo=new PDO($dsn,"root","");
-date_default_timezone_set("Asia/Taipei");
+// 注意後半段 .$_GET['id']."'" 變數變成加中括號
+$sql="select * from `student` where `id`='".$_COOKIE['id']."'";
+$user=$pdo->query($sql)->fetch();
 
+echo "<h1>歡迎". $user['name']."</h1>";
 
 $sql="select * from `student`";
 $rows=$pdo->query($sql)->fetchAll();
@@ -44,6 +55,8 @@ $rows=$pdo->query($sql)->fetchAll();
 
     
 <?php
+
+
 foreach ($rows as $row) {
     echo "<tr>";
     echo "    <td>" .$row['id']."</td>";
@@ -66,5 +79,8 @@ foreach ($rows as $row) {
 
 ?>
 </table>
+<div class="back">
+    <a href="login.php">回登入頁</a>
+</div>
 </body>
 </html>
